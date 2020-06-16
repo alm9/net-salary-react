@@ -5,7 +5,7 @@ export default class App extends Component {
   render() {
     return (
       <div className="container">
-        <h1 style={{ textAlign: 'center' }}>React Salário</h1>
+        <h4 style={{ textAlign: 'center' }}>Cálculo do Salário Líquido</h4>
         <Header />
       </div>
     );

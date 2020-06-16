@@ -7,12 +7,12 @@ export default class GrossSalary extends Component {
     this.props.onChangeGrossSalary(newGrossSalary);
   };
 
-  // componentDidMount() {}
-
   render() {
     return (
       <div>
-        <label>Salário Bruto:</label>
+        <label style={{ color: 'green' }}>
+          <strong>Salário Bruto:</strong>
+        </label>
         <div className="padding default-flex-row">
           <span className="small material-icons">attach_money</span>
           <input
