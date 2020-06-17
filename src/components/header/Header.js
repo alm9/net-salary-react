@@ -32,10 +32,10 @@ export default class ProjetoBase extends Component {
       netSalary,
     } = calculateSalaryFrom(newValueGrossSal);
 
-    console.log(discountIRPF);
+    // console.log(discountIRPF);
 
     this.setState({
-      // grossSal: value,
+      grossSal: newValueGrossSal,
       baseINSS,
       discountINSS,
       baseIRPF,
@@ -46,6 +46,7 @@ export default class ProjetoBase extends Component {
 
   render() {
     const {
+      grossSal,
       baseINSS,
       discountINSS,
       baseIRPF,
@@ -56,7 +57,7 @@ export default class ProjetoBase extends Component {
       <div>
         {/* input: */}
         <GrossSalary
-          grossSalary={this.grossSal}
+          grossSalary={grossSal}
           onChangeGrossSalary={this.handleChangeGrossSalary}
         />
         {/* outputs: */}
@@ -72,6 +73,7 @@ export default class ProjetoBase extends Component {
             <ReadOnly
               className="col s3"
               result={discountINSS}
+              grossSalary={grossSal}
               label={'Desconto INSS:'}
             />
           </div>
@@ -86,12 +88,17 @@ export default class ProjetoBase extends Component {
             <ReadOnly
               className="col s3"
               result={discountIRPF}
+              grossSalary={grossSal}
               label={'Desconto IRPF:'}
             />
           </div>
         </div>
 
-        <ReadOnly result={netSal} label={'Salário Líquido:'} />
+        <ReadOnly
+          result={netSal}
+          grossSalary={grossSal}
+          label={'Salário Líquido:'}
+        />
       </div>
     );
   }
