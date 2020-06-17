@@ -14,7 +14,7 @@ export default class GrossSalary extends Component {
           <strong>Salário Bruto:</strong>
         </label>
         <div className="padding default-flex-row">
-          <span className="small material-icons">attach_money</span>
+          <span className="small material-icons">edit</span>
           <input
             type="number"
             placeholder="0"
