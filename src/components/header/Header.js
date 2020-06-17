@@ -13,7 +13,7 @@ export default class ProjetoBase extends Component {
     super();
 
     this.state = {
-      grossSal: 1000,
+      grossSal: '',
       baseINSS: 0,
       discountINSS: 0,
       baseIRPF: 0,

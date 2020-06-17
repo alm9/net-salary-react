@@ -4,11 +4,14 @@ import { formatNumber } from '../../../helpers/formatHelpers';
 export default class ReadOnly extends Component {
   render() {
     let { grossSalary, label, result } = this.props;
-    if (grossSalary !== undefined)
+
+    if (grossSalary > 0)
       result = `${formatNumber(result)} (${formatNumber(
         (result * 100) / grossSalary
       )}%)`;
+    // if (result < 0) result = 0;
     else result = formatNumber(result);
+
     return (
       <div>
         <label className="blue-text text-darken-2">{label}</label>
