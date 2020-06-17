@@ -4,13 +4,9 @@
  */
 
 import React, { Component } from 'react';
-import NetSalary from './salary/net/NetSalary';
-import GrossSalary from './salary/gross/GrossSalary';
+import GrossSalary from './fullSalary/GrossSalary';
 import { calculateSalaryFrom } from '../calculateSalary/salary';
-import BaseINSS from './inss/BaseINSS';
-import DescontoINSS from './inss/DescontoINSS';
-import BaseIRPF from './irpf/BaseIRPF';
-import DescontoIRPF from './irpf/DescontoIRPF';
+import ReadOnly from './readOnly/ReadOnly';
 
 export default class ProjetoBase extends Component {
   constructor() {
@@ -49,6 +45,13 @@ export default class ProjetoBase extends Component {
   };
 
   render() {
+    const {
+      baseINSS,
+      discountINSS,
+      baseIRPF,
+      discountIRPF,
+      netSal,
+    } = this.state;
     return (
       <div>
         {/* input: */}
@@ -59,20 +62,36 @@ export default class ProjetoBase extends Component {
         {/* outputs: */}
         <div className="row">
           <div className="col s3">
-            <BaseINSS result={this.state.baseINSS} />
+            <ReadOnly
+              className="col s3"
+              result={baseINSS}
+              label={'Base INSS:'}
+            />
           </div>
           <div className="col s3">
-            <DescontoINSS result={this.state.discountINSS} />
+            <ReadOnly
+              className="col s3"
+              result={discountINSS}
+              label={'Desconto INSS:'}
+            />
           </div>
           <div className="col s3">
-            <BaseIRPF result={this.state.baseIRPF} />
+            <ReadOnly
+              className="col s3"
+              result={baseIRPF}
+              label={'Base IRPF:'}
+            />
           </div>
           <div className="col s3">
-            <DescontoIRPF result={this.state.discountIRPF} />
+            <ReadOnly
+              className="col s3"
+              result={discountIRPF}
+              label={'Desconto IRPF:'}
+            />
           </div>
         </div>
 
-        <NetSalary netSalary={this.state.netSal} />
+        <ReadOnly result={netSal} label={'Salário Líquido:'} />
       </div>
     );
   }

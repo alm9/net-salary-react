@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 
-export default class DescontoIRPF extends Component {
+export default class ReadOnly extends Component {
   render() {
     return (
       <div>
-        <label>Desconto IRPF:</label>
+        <label>{this.props.label}</label>
         <div className="padding default-flex-row">
           <span className="small material-icons">attach_money</span>
           <input
