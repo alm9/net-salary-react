@@ -98,6 +98,7 @@ function calculateSalaryFrom(grossSalary) {
   const baseIRPF = baseINSS - discountINSS;
   const discountIRPF = calculateDiscountIRPF(baseIRPF);
   const percentageIRPF = percentage(grossSalary, discountIRPF);
+  console.log(`percentageIRPF=${percentageIRPF}`);
 
   const netSalary = baseINSS - discountINSS - discountIRPF;
 

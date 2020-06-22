@@ -5,7 +5,7 @@ const formatterNumber = Intl.NumberFormat('pt-BR', {
 });
 
 const formatterPercentage = Intl.NumberFormat('pt-BR', {
-  style: 'percent',
+  // style: 'percent',
   currency: 'BRL',
   maximumFractionDigits: 2,
 });

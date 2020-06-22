@@ -5,16 +5,15 @@ export default class ReadOnly extends Component {
   render() {
     let { label, result, percentage } = this.props;
 
-    // if (percentage > 0) console.log(label + '»»' + percentage);
     if (percentage > 0) {
-      percentage = formatPercentage(percentage);
+      percentage = formatPercentage(percentage) + '%';
       result = `${formatNumber(result)} (${percentage})`;
     } else {
       // console.log(percentage);
 
       result = formatNumber(result);
     }
-    // console.log(percentageIRPF);
+    // console.log(percentage);
 
     return (
       <div>
