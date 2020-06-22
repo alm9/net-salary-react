@@ -10,10 +10,6 @@ export default class AllBars extends Component {
 
     [barINSS, barIRPF, barLiq] = [barINSS / x, barIRPF / x, barLiq / x];
 
-    console.log(`barINSS= ${barINSS}`);
-    console.log(`barIRPF= ${barIRPF}`);
-    console.log(`barIRPF= ${barLiq}`);
-
     return (
       <div
         style={{
