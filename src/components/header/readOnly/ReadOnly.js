@@ -1,16 +1,20 @@
 import React, { Component } from 'react';
-import { formatNumber } from '../../../helpers/formatHelpers';
+import { formatNumber, formatPercentage } from '../../../helpers/formatHelpers';
 
 export default class ReadOnly extends Component {
   render() {
-    let { grossSalary, label, result } = this.props;
+    let { label, result, percentage } = this.props;
 
-    if (grossSalary > 0)
-      result = `${formatNumber(result)} (${formatNumber(
-        (result * 100) / grossSalary
-      )}%)`;
-    // if (result < 0) result = 0;
-    else result = formatNumber(result);
+    // if (percentage > 0) console.log(label + '»»' + percentage);
+    if (percentage > 0) {
+      percentage = formatPercentage(percentage);
+      result = `${formatNumber(result)} (${percentage})`;
+    } else {
+      // console.log(percentage);
+
+      result = formatNumber(result);
+    }
+    // console.log(percentageIRPF);
 
     return (
       <div>

@@ -7,6 +7,7 @@ import React, { Component } from 'react';
 import GrossSalary from './fullSalary/GrossSalary';
 import { calculateSalaryFrom } from '../calculateSalary/salary';
 import ReadOnly from './readOnly/ReadOnly';
+import AllBars from './bars/AllBars';
 
 export default class ProjetoBase extends Component {
   constructor() {
@@ -16,8 +17,10 @@ export default class ProjetoBase extends Component {
       grossSal: '',
       baseINSS: 0,
       discountINSS: 0,
+      percentageINSS: 0,
       baseIRPF: 0,
       discountIRPF: 0,
+      percentageIRPF: 0,
       netSal: 111,
     };
   }
@@ -27,8 +30,10 @@ export default class ProjetoBase extends Component {
     const {
       baseINSS,
       discountINSS,
+      percentageINSS,
       baseIRPF,
       discountIRPF,
+      percentageIRPF,
       netSalary,
     } = calculateSalaryFrom(newValueGrossSal);
 
@@ -38,8 +43,10 @@ export default class ProjetoBase extends Component {
       grossSal: newValueGrossSal,
       baseINSS,
       discountINSS,
+      percentageINSS,
       baseIRPF,
       discountIRPF,
+      percentageIRPF,
       netSal: netSalary,
     });
   };
@@ -49,10 +56,13 @@ export default class ProjetoBase extends Component {
       grossSal,
       baseINSS,
       discountINSS,
+      percentageINSS,
       baseIRPF,
       discountIRPF,
+      percentageIRPF,
       netSal,
     } = this.state;
+
     return (
       <div>
         {/* input: */}
@@ -73,7 +83,7 @@ export default class ProjetoBase extends Component {
             <ReadOnly
               className="col s3"
               result={discountINSS}
-              grossSalary={grossSal}
+              percentage={percentageINSS}
               label={'Desconto INSS:'}
             />
           </div>
@@ -88,16 +98,20 @@ export default class ProjetoBase extends Component {
             <ReadOnly
               className="col s3"
               result={discountIRPF}
-              grossSalary={grossSal}
+              percentage={percentageIRPF}
               label={'Desconto IRPF:'}
             />
           </div>
         </div>
-
         <ReadOnly
           result={netSal}
           grossSalary={grossSal}
           label={'Salário Líquido:'}
+        />
+        <AllBars
+          barINSS={discountINSS}
+          barIRPF={discountIRPF}
+          barLiq={netSal}
         />
       </div>
     );

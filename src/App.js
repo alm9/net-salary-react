@@ -1,3 +1,8 @@
+/**
+ * Cálculo de Salário Líquido
+ * by: André de Lima Machado
+ */
+
 import React, { Component } from 'react';
 import Header from './components/header/Header';
 
