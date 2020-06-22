@@ -1,18 +1,16 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-export default class Bar extends Component {
-  render() {
-    const { value, color = 'black' } = this.props;
+export default function Bar(props) {
+  const { value, color = 'black' } = props;
 
-    return (
-      <div
-        style={{
-          marginTop: '40px',
-          width: value + '%',
-          height: '20px',
-          backgroundColor: color,
-        }}
-      />
-    );
-  }
+  return (
+    <div
+      style={{
+        marginTop: '40px',
+        width: value + '%',
+        height: '20px',
+        backgroundColor: color,
+      }}
+    />
+  );
 }
